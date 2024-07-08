@@ -1,0 +1,8 @@
+<app-product-list 
+  (addProduct)="onAddProduct()" 
+  (editProduct)="onEditProduct($event)">
+</app-product-list>
+<app-product-form *ngIf="showForm" 
+  [product]="selectedProduct || {}" 
+  (formClosed)="onCloseForm()">
+</app-product-form>

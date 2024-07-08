@@ -1,0 +1,33 @@
+<div>
+  <h2>{{ product.id ? 'Edit Product' : 'Add Product' }}</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="barcode">Barcode:</label>
+      <input id="barcode" [(ngModel)]="product.barcode" name="barcode" required />
+    </div>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" [(ngModel)]="product.name" name="name" required />
+    </div>
+    <div>
+      <label for="image">Image URL:</label>
+      <input id="image" [(ngModel)]="product.image" name="image" />
+    </div>
+    <div>
+      <label for="tags">Tags:</label>
+      <input id="tags" [(ngModel)]="product.tags" name="tags" />
+    </div>
+    <div>
+      <label for="rating">Rating:</label>
+      <input id="rating" type="number" [(ngModel)]="product.rating" name="rating" min="0" max="5" required />
+    </div>
+    <div>
+      <label for="price">Price:</label>
+      <input id="price" type="number" [(ngModel)]="product.price" name="price" required />
+    </div>
+    <div>
+      <button type="submit">{{ product.id ? 'Update' : 'Add' }} Product</button>
+      <button type="button" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>

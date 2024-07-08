@@ -1,0 +1,38 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+    ports:
+      - 3306:3306
+    networks:
+      - my-network
+  
+  backend:
+    build:
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - mysql
+    networks:
+      - my-network
+  
+  frontend:
+    build:
+      context: ../Gal-Kolberg-Products-service-ui
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 4200:4200
+    depends_on:
+      - backend
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge

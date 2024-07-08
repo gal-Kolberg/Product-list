@@ -1,0 +1,53 @@
+<div *ngIf="products.length > 0">
+  <div>
+    <h2>Product List</h2>
+    <div class="controls">
+      <input type="text" placeholder="Search by name" (input)="onSearchChange($event)" />
+      <select (change)="onOrderChange($event)">
+        <option value="">Sort by</option>
+        <option value="name">Name</option>
+        <option value="price">Price</option>
+        <option value="rating">Rating</option>
+      </select>
+    </div>
+    <button class="add-product" (click)="onAddProduct()">Add Product</button>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Barcode</th>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Tags</th>
+          <th>Rating</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.id }}</td>
+          <td>{{ product.barcode }}</td>
+          <td>{{ product.name }}</td>
+          <td><img [src]="product.image" alt="{{ product.name }}" width="50"></td>
+          <td>{{ product.tags.join(', ') }}</td>
+          <td>{{ product.rating }}</td>
+          <td>{{ product.price | currency }}</td>
+          <td>
+            <button (click)="onEditProduct(product)">Edit</button>
+            <button (click)="onDeleteProduct(product.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <button (click)="onPageChange(page - 1)" [disabled]="page === 0">Previous</button>
+      <span>Page {{ page  + 1}}</span>
+      <button (click)="onPageChange(page + 1)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="products.length === 0">
+  <p>No products found</p>
+</div>
