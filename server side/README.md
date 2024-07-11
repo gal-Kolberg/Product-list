@@ -14,7 +14,7 @@ This backend service manages products using a MySQL database. The API allows you
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/NanoxAIDevelopment/Gal-Kolberg-Products-service.git
+    git clone https://github.com/gal-Kolberg/Product-list.git
     cd Gal-Kolberg-Products-service
     ```
 
