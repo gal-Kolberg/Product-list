@@ -17,7 +17,7 @@ This project is a full-stack application that manages products, providing functi
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/NanoxAIDevelopment/Gal-Kolberg-Products-service.git
+    git clone https://github.com/gal-Kolberg/Product-list.git
     cd Gal-Kolberg-Products-service
     ```
 
